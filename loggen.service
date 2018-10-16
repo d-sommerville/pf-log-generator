@@ -1,0 +1,15 @@
+[Unit]
+Description=Mock log generation service
+After=syslog.target
+
+[Service]
+Type=simple
+User=duncan
+Group=duncan
+WorkingDirectory=/opt/py/
+ExecStart=/usr/bin/python3.5 /opt/py/generators.py
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
